@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Net Timoney | Artist Portfolio</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .logo {
+      width: 300px;
+      height: 300px;
+      margin: 40px auto 60px auto;
+      display: block;
+    }
+
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 40px auto;
+  max-width: 850px; /* Ensures 2 thumbnails fit side-by-side */
+}
+
+
+    .grid a img {
+      width: 400px;
+      height: 150px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .grid a:hover img {
+      transform: scale(1.02);
+    }
+
+    .footer-links {
+      font-size: 16pt;
+      margin-bottom: 40px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+nav {
+  background-color: #000;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="illustration.html">Illustration</a>
+    <a href="product-design.html">Product Design</a>
+    <a href="concept-art.html">Concept Art</a>
+    <a href="3d.html">3D</a>
+    <a href="about.html">Net Timoney</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Logo -->
+  <img src="images/cropped-500px-logo-photography-social-media-design-thumb.jpg" alt="Net Timoney Logo" class="logo" />
+
+  <!-- Grid of links -->
+  <div class="grid">
+    <a href="illustration.html">
+      <img src="images/cropped-500px-logo-photography-social-media-design-thumb.jpg" alt="Illustration" />
+    </a>
+    <a href="product-design.html">
+      <img src="images/cropped-500px-logo-photography-social-media-design-thumb.jpg" alt="Product Design" />
+    </a>
+    <a href="concept-art.html">
+      <img src="images/cropped-500px-logo-photography-social-media-design-thumb.jpg" alt="Concept Art" />
+    </a>
+    <a href="3d.html">
+      <img src="images/cropped-500px-logo-photography-social-media-design-thumb.jpg" alt="3D" />
+    </a>
+  </div>
+
+  <!-- Footer links -->
+  <div class="footer-links">
+    <a href="about.html">Net Timoney</a> | 
+    <a href="contact.html">Contact</a>
+  </div>
+
+</body>
+</html>

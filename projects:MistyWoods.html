@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spooky Forest Stroll Pokémon Halloween LED Centerpiece</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    nav {
+  background-color: #000;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .project-meta {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ccc;
+      text-align: center;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-drag: none;
+      pointer-events: auto;
+    }
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0; right:0; bottom:0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+      padding: 20px;
+    }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    #lightbox p {
+      max-width: 90vw;
+      text-align: center;
+      font-size: 16px;
+      color: #ddd;
+    }
+    #closeBtn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+    }
+    #closeBtn:hover {
+      color: #f00;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../illustration.html">Illustration</a>
+    <a href="../product-design.html">Product Design</a>
+    <a href="../concept-art.html">Concept Art</a>
+    <a href="../3d.html">3D</a>
+    <a href="../about.html">Net Timoney</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+<h1 style="font-weight: 300; text-align: center; font-size: 36px; margin-top: 40px; ">
+  Spooky Forest Stroll Pokémon Halloween LED Centerpiece
+</h1>
+
+<div class="project-meta">
+  <h2 style="font-weight: 300; text-align: center; font-size: 16px; margin-bottom: 10px;">
+    Net Timoney: Senior Merchandise Developer<br>
+    Merchandise Development Manager: Michael Noland<br>
+    Produced by: The Pokémon Company International
+  </h2>
+  <p style="font-size: 8pt; color: #aaa; margin-bottom: 40px; line-height: 1.5; ">
+    © 2024 Pokémon © 1995–2025 Nintendo/Creatures Inc./GAME FREAK inc.<br>
+    TM ®, and character names are trademarks of Nintendo.<br>
+    The Pokémon Company International / Game Freak / The Pokémon Company
+  </p>
+</div>
+<div style="display: flex; justify-content: flex-start; gap: 10px; margin-bottom: 40px;">
+  <!-- Back to Product Design Button -->
+  <a href="../product-design.html" style="
+    background-color: #444; 
+    color: white; 
+    padding: 5px 12px; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+  ">
+    ← Back to Product Design
+  </a>
+
+  <!-- Play Slideshow Button -->
+  <button id="playSlideshowBtn" style="
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  ">
+    ▶ Play Slideshow
+  </button>
+</div>
+
+  <div class="gallery">
+    <img src="images/P9173_710E12361_01.jpg" alt="Front view of the LED Centerpiece" data-description="Front view of the spooky forest scene with Pokémon characters." draggable="false" oncontextmenu="return false;">
+    <img src="images/P9173_710E12361_03.jpg" alt="Side view of centerpiece" data-description="Side profile showing LED glow and character placement." draggable="false" oncontextmenu="return false;">
+    <img src="images/P9173_710E12361_04.jpg" alt="Back view with packaging" data-description="Back view showing details and Halloween-themed packaging." draggable="false" oncontextmenu="return false;">
+   <img src="images/P9173_710E12361_12.jpg" alt="Back view with packaging" data-description="Back view showing details and Halloween-themed packaging." draggable="false" oncontextmenu="return false;">
+   <img src="images/P9173_710E12361_11.jpg" alt="Back view with packaging" data-description="Back view showing details and Halloween-themed packaging." draggable="false" oncontextmenu="return false;">
+  </div>
+
+  <div id="lightbox" onclick="closeLightbox(event)">
+    <div id="closeBtn" title="Close">&times;</div>
+    <img src="" alt="" />
+    <p></p>
+  </div>
+
+  <script>
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxDesc = lightbox.querySelector('p');
+    const closeBtn = document.getElementById('closeBtn');
+
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxDesc.textContent = img.getAttribute('data-description');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+      lightboxDesc.textContent = '';
+    });
+
+    function closeLightbox(e) {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        lightboxDesc.textContent = '';
+      }
+    }
+
+    lightboxImg.addEventListener('contextmenu', e => e.preventDefault());
+  </script>
+</body>
+</html>

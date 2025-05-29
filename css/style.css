@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+nav {
+    background: #111;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.grid img {
+    width: 100%;
+    cursor: pointer;
+}
+.gallery {
+    text-align: center;
+}
+.gallery img {
+    width: 70%;
+    max-width: 800px;
+}
+.splash-container {
+    text-align: center;
+    margin-top: 50px;
+}
+.logo {
+    width: 300px;
+}
+.splash-links img {
+    width: 200px;
+    margin: 20px;
+    transition: 0.3s;
+}
+.splash-links img:hover {
+    transform: scale(1.05);
+}
+h1 {
+  font-weight:300;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 40px;
+}
+

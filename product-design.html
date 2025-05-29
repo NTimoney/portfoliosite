@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Design</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+  background-color: #000;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .grid .item {
+      position: relative;
+      cursor: pointer;
+    }
+    .grid a {
+      display: block;
+      position: relative;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+      user-select: none;
+      -webkit-user-drag: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      pointer-events: auto;
+      display: block;
+    }
+    .grid a:hover::after {
+      content: attr(data-description);
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      right: 5px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 14px;
+      padding: 5px;
+      border-radius: 3px;
+      pointer-events: none;
+      user-select: none;
+      white-space: normal;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="illustration.html">Illustration</a>
+    <a href="product-design.html">Product Design</a>
+    <a href="concept-art.html">Concept Art</a>
+    <a href="3d.html">3D</a>
+    <a href="about.html">Net Timoney</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+
+<h1 style="font-weight: 300; text-align: center; font-size: 36px; margin-top: 40px; ">
+ Product Design </h1>
+
+<div class="project-meta">
+  <h2 style="font-weight: 300; text-align: center; font-size: 16px; margin-bottom: 10px;">
+   Net Timoney has been working as a merchandise developer, designing and developing product concept as an artist for major international merchandisers like The Pokémon Company, TJ Maxx/ TK Maxx, Marshalls, HomeGoods/ HomeSense, ROSS, and has collaborated with directors and producers like Martha Stewart, Amy Morrison and Rock Love.
+  </h2>
+  
+
+  <div class="grid">
+    <a href="projects/MistyWoods.html" class="item" data-description="Spooky Forest Stroll LED Centerpiece" oncontextmenu="return false;">
+      <img src="images/P9173_710E12361_01.jpg" alt="Spooky Forest Stroll LED Centerpiece" draggable="false" />
+    </a>
+    <a href="projects/PumpkinPatch.html" class="item" data-description="Pumpkin Patch of Dreams Pokémon Halloween Figure" oncontextmenu="return false;">
+      <img src="images/P9173_710E12362_02.jpg" alt="Pumpkin Patch of Dreams Pokémon Halloween Figure" draggable="false" />
+    </a>
+    <a href="projects/Howl.html" class="item" data-description="Lycanroc Howling Hill Figure" oncontextmenu="return false;">
+      <img src="images/P9059_710-97015_07.jpg" alt="Lycanroc Howling Hill Figure" draggable="false" />
+    </a>
+    <a href="projects/Funhouse.html" class="item" data-description="Mr. Mime Fun House Figure" oncontextmenu="return false;">
+      <img src="images/P9059_710-97014_10.jpg" alt="Mr. Mime Fun House Figure" draggable="false" />
+    </a>
+    <a href="projects/Payday.html" class="item" data-description="Pokémon Moods Meowth Lucky Figure" oncontextmenu="return false;">
+      <img src="images/P8401_703-96381_01.jpg" alt="Pokémon Moods Meowth Lucky Figure" draggable="false" />
+    </a>
+  </div>
+</body>
+</html>

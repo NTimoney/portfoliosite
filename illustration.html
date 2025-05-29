@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Illustration</title>
+  <meta name="robots" content="noimageindex, noindex, nofollow">
+  <meta name="googlebot" content="noimageindex, noindex, nofollow">
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+  background-color: #000;
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .image-item {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      display: flex;
+      width: 100%;
+      max-width: 180px;
+      margin: 0 auto;
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 17, 17, 0.8);
+      color: white;
+      padding: 10px;
+      font-size: 0.9rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      max-height: 50%;
+      overflow-y: auto;
+    }
+
+    .image-item:hover .overlay {
+      opacity: 1;
+    }
+
+    #viewer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #viewer img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    #viewer .close-btn {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      z-index: 1001;
+    }
+
+    .screenshot-blocker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="illustration.html">Illustration</a>
+    <a href="product-design.html">Product Design</a>
+    <a href="concept-art.html">Concept Art</a>
+    <a href="3d.html">3D</a>
+    <a href="about.html">Net Timoney</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <h1>Illustration</h1>
+
+  <div class="grid">
+    <div class="image-item" data-full="images/_DSC8066.png">
+      <img src="images/_DSC8066.png" alt="He Who Calls" draggable="false" />
+      <div class="overlay">He Who Calls – A mysterious figure beckons from the shadows.</div>
+    </div>
+    <div class="image-item" data-full="images/_DSC8209.png">
+      <img src="images/_DSC8209.png" alt="Apology in Flowers" draggable="false" />
+      <div class="overlay">Apology in Flowers – A delicate bouquet conveying unspoken words.</div>
+    </div>
+    <div class="image-item" data-full="images/_DSC8450.png">
+      <img src="images/_DSC8066.png" alt="The Watchers" draggable="false" />
+      <div class="overlay">The Watchers – Guardians of forgotten realms, observing in silence.</div>
+    </div>
+  </div>
+
+  <!-- Lightbox Viewer -->
+  <div id="viewer">
+    <div class="close-btn" title="Close viewer">&times;</div>
+    <img src="" alt="Full-size image" />
+  </div>
+
+  <!-- Transparent screenshot blocker overlay -->
+  <div class="screenshot-blocker"></div>
+
+  <script>
+    const viewer = document.getElementById('viewer');
+    const viewerImg = viewer.querySelector('img');
+    const closeBtn = viewer.querySelector('.close-btn');
+
+    // Disable right-click on thumbnails and lightbox image
+    document.querySelectorAll('.image-item img').forEach(img => {
+      img.addEventListener('contextmenu', e => e.preventDefault());
+    });
+    viewerImg.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable dragging images globally (redundant with draggable="false" but extra safety)
+    document.querySelectorAll('img').forEach(img => {
+      img.setAttribute('draggable', 'false');
+    });
+
+    // Thumbnail click to open lightbox
+    document.querySelectorAll('.image-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const fullSrc = item.getAttribute('data-full');
+        viewerImg.src = fullSrc;
+        viewer.style.display = 'flex';
+      });
+    });
+
+    // Close lightbox on button click or outside click
+    closeBtn.addEventListener('click', () => {
+      viewer.style.display = 'none';
+      viewerImg.src = '';
+    });
+
+    viewer.addEventListener('click', e => {
+      if (e.target === viewer) {
+        viewer.style.display = 'none';
+        viewerImg.src = '';
+      }
+    });
+
+    // Close lightbox on Escape key
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && viewer.style.display === 'flex') {
+        viewer.style.display = 'none';
+        viewerImg.src = '';
+      }
+    });
+
+    // Disable Ctrl+S and PrintScreen keys
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        alert("Saving is disabled on this page.");
+      }
+      if (e.key === 'PrintScreen') {
+        e.preventDefault();
+        alert("Screenshots are disabled on this page.");
+      }
+    });
+  </script>
+</body>
+</html>
